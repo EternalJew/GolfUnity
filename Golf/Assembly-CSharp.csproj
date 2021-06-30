@@ -39,6 +39,7 @@
      <Compile Include="Assets\MiniGolf\Scripts\CameraFollow.cs" />
      <Compile Include="Assets\MiniGolf\Scripts\SoundManager.cs" />
      <Compile Include="Assets\MiniGolf\Scripts\BallController.cs" />
+     <Compile Include="Assets\MiniGolf\Scripts\CameraRotation.cs" />
     <Reference Include="UnityEngine">
         <HintPath>/home/user/Unity/Hub/Editor/2020.3.2f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
@@ -623,6 +624,15 @@
     </Reference>
     <Reference Include="UnityEngine.UI">
         <HintPath>/home/user/git/GolfUnity/Golf/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Sysroot.Linux_x86_64">
+        <HintPath>/home/user/git/GolfUnity/Golf/Library/ScriptAssemblies/Unity.Sysroot.Linux_x86_64.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Toolchain.Linux-x86_64">
+        <HintPath>/home/user/git/GolfUnity/Golf/Library/ScriptAssemblies/Unity.Toolchain.Linux-x86_64.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.SysrootPackage.Editor">
+        <HintPath>/home/user/git/GolfUnity/Golf/Library/ScriptAssemblies/Unity.SysrootPackage.Editor.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

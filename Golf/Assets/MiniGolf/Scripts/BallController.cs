@@ -28,6 +28,10 @@ public class BallController : MonoBehaviour
         }
         rigidBody = GetComponent<Rigidbody>();
     }
+    void Start()
+    {
+        CameraFollow.instance.SetTarget(gameObject);
+    }
     void Update()
     {
         if(Input.GetMouseButtonDown(0) && !canShoot)
@@ -40,6 +44,7 @@ public class BallController : MonoBehaviour
         if(Input.GetMouseButton(0))
         {
             endPos = ClickedPoint();
+            endPos.y = lineRenderer.transform.position.y;
             force = Mathf.Clamp(Vector3.Distance(endPos, startPos) * forceModifier, 0, maxForce);
             lineRenderer.SetPosition(1, transform.InverseTransformPoint(endPos));
         }
