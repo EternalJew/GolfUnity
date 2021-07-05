@@ -14,7 +14,7 @@ public class BallController : MonoBehaviour
     private Rigidbody rigidBody;
 
     private Vector3 startPos, endPos;
-    private bool canShoot = false;
+    private bool canShoot = false, isBallStatic = true;
     private Vector3 direction;
     void Awake()
     {
@@ -52,41 +52,29 @@ public class BallController : MonoBehaviour
         canShoot = true;
         lineRenderer.gameObject.SetActive(false);
     }
-
-    // void Update()
-    // {
-    //     if(Input.GetMouseButtonDown(0) && !canShoot)
-    //     {
-    //         startPos = ClickedPoint();
-    //         lineRenderer.gameObject.SetActive(true);
-    //         lineRenderer.SetPosition(0, lineRenderer.transform.localPosition);
-    //     }
-
-    //     if(Input.GetMouseButton(0))
-    //     {
-    //         endPos = ClickedPoint();
-    //         endPos.y = lineRenderer.transform.position.y;
-    //         force = Mathf.Clamp(Vector3.Distance(endPos, startPos) * forceModifier, 0, maxForce);
-    //         lineRenderer.SetPosition(1, transform.InverseTransformPoint(endPos));
-    //     }
-
-    //     if(Input.GetMouseButtonUp(0))
-    //     {
-    //         canShoot = true;
-    //         lineRenderer.gameObject.SetActive(false);
-    //     }
-    // }
+    private void Update()
+    {
+        if(rigidBody.velocity == Vector3.zero && !isBallStatic)
+        {
+            isBallStatic = true;
+            rigidBody.angularVelocity = Vector3.zero;
+            areaAffector.SetActive(true);
+        }
+    }
 
     private void FixedUpdate() 
     {
         if(canShoot)
         {
             canShoot = false;
+            isBallStatic = false;
             direction = startPos - endPos;
             rigidBody.AddForce(direction * force, ForceMode.Impulse);
+            //Fix this. Area affector hide when we make shot
             areaAffector.SetActive(false);
             force = 0;
             startPos = endPos = Vector3.zero;
+            isBallStatic = false;
         }    
     }
     Vector3 ClickedPoint()
