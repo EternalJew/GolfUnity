@@ -8,9 +8,11 @@ using UnityEngine;
 public class CameraFollow : MonoBehaviour
 {
     public static CameraFollow instance;
+    [SerializeField] private CameraRotation cameraRotation;
 
     [SerializeField] private ActiveVectors activeVectors;   //class which decide axis allowed to follow
-
+    public CameraRotation CameraRotation{ get{ return cameraRotation;}}
+    
     private GameObject followTarget;                        //reference target to follow
     private Vector3 offset;                                 //offset between camera and ball
     private Vector3 changePos;                              //keep track of camera pos

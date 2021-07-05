@@ -32,29 +32,50 @@ public class BallController : MonoBehaviour
     {
         CameraFollow.instance.SetTarget(gameObject);
     }
-    void Update()
+    public void MouseDownMethod()
     {
-        if(Input.GetMouseButtonDown(0) && !canShoot)
-        {
-            startPos = ClickedPoint();
-            lineRenderer.gameObject.SetActive(true);
-            lineRenderer.SetPosition(0, lineRenderer.transform.localPosition);
-        }
-
-        if(Input.GetMouseButton(0))
-        {
-            endPos = ClickedPoint();
-            endPos.y = lineRenderer.transform.position.y;
-            force = Mathf.Clamp(Vector3.Distance(endPos, startPos) * forceModifier, 0, maxForce);
-            lineRenderer.SetPosition(1, transform.InverseTransformPoint(endPos));
-        }
-
-        if(Input.GetMouseButtonUp(0))
-        {
-            canShoot = true;
-            lineRenderer.gameObject.SetActive(false);
-        }
+        startPos = ClickedPoint();
+        lineRenderer.gameObject.SetActive(true);
+        lineRenderer.SetPosition(0, lineRenderer.transform.localPosition);
     }
+
+    public void MouseNormalMethod()
+    {
+        endPos = ClickedPoint();
+        endPos.y = lineRenderer.transform.position.y;
+        force = Mathf.Clamp(Vector3.Distance(endPos, startPos) * forceModifier, 0, maxForce);
+        lineRenderer.SetPosition(1, transform.InverseTransformPoint(endPos));
+    }
+
+    public void MouseUpMethod()
+    {
+        canShoot = true;
+        lineRenderer.gameObject.SetActive(false);
+    }
+
+    // void Update()
+    // {
+    //     if(Input.GetMouseButtonDown(0) && !canShoot)
+    //     {
+    //         startPos = ClickedPoint();
+    //         lineRenderer.gameObject.SetActive(true);
+    //         lineRenderer.SetPosition(0, lineRenderer.transform.localPosition);
+    //     }
+
+    //     if(Input.GetMouseButton(0))
+    //     {
+    //         endPos = ClickedPoint();
+    //         endPos.y = lineRenderer.transform.position.y;
+    //         force = Mathf.Clamp(Vector3.Distance(endPos, startPos) * forceModifier, 0, maxForce);
+    //         lineRenderer.SetPosition(1, transform.InverseTransformPoint(endPos));
+    //     }
+
+    //     if(Input.GetMouseButtonUp(0))
+    //     {
+    //         canShoot = true;
+    //         lineRenderer.gameObject.SetActive(false);
+    //     }
+    // }
 
     private void FixedUpdate() 
     {
