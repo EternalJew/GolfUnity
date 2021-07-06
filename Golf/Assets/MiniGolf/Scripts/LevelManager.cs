@@ -21,12 +21,18 @@ public class LevelManager : MonoBehaviour
         Destroy(gameObject);
       }
   }
+  private void Start()
+  {
+      SpawnLevel(GameManager.singleton.currentLevelIndex);
+  }
   public void SpawnLevel(int levelIndex)
   {
       Instantiate(levelDatas[levelIndex].levelPrefab, Vector3.zero, Quaternion.identity);
       shotCount = levelDatas[levelIndex].shotLimit;
 
-      GameObject ball = Instantiate(ballPrefab, Vector3.zero, Quaternion.identity);
+      GameObject ball = Instantiate(ballPrefab, Vector3.up * 0.5f, Quaternion.identity);
+
+      GameManager.singleton.gameStatus = GameStatus.PLAYING;
   }
 
   public void ShotTaken()
@@ -34,6 +40,18 @@ public class LevelManager : MonoBehaviour
       if(shotCount > 0)
       {
           shotCount--;
+          if(shotCount <= 0)
+          {
+              GameManager.singleton.gameStatus = GameStatus.FAILED;
+          }
       }
+  }
+  public void LevelComplete()
+  {
+
+  }
+  public void LevelFaield()
+  {
+      
   }
 }

@@ -389,4 +389,4 @@ MonoBehaviour:
   forceModifier: 1.5
   rayLayer:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 9

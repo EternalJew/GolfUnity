@@ -32,6 +32,17 @@ public class BallController : MonoBehaviour
     {
         CameraFollow.instance.SetTarget(gameObject);
     }
+    void OnTriggerEnter(Collider other)
+    {
+        if(other.name == "Hole")
+        {
+            LevelManager.instance.LevelComplete();
+        }
+        if(other.name == "Destroyer")
+        {
+            LevelManager.instance.LevelFaield();
+        }
+    }
     public void MouseDownMethod()
     {
         startPos = ClickedPoint();
@@ -74,7 +85,7 @@ public class BallController : MonoBehaviour
             areaAffector.SetActive(false);
             force = 0;
             startPos = endPos = Vector3.zero;
-            isBallStatic = false;
+            //isBallStatic = false;
         }    
     }
     Vector3 ClickedPoint()
