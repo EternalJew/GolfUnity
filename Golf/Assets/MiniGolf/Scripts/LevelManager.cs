@@ -48,10 +48,26 @@ public class LevelManager : MonoBehaviour
   }
   public void LevelComplete()
   {
-
+    if(GameManager.singleton.gameStatus == GameStatus.PLAYING)
+    {
+      GameManager.singleton.gameStatus = GameStatus.COMPLETED;
+      if(GameManager.singleton.currentLevelIndex < levelDatas.Length)
+      {
+        GameManager.singleton.currentLevelIndex++;
+      }
+      else
+      {
+        GameManager.singleton.currentLevelIndex = 0;
+      }
+      UIManager.instance.GameResult();
+    }
   }
   public void LevelFaield()
   {
-      
+      if(GameManager.singleton.gameStatus == GameStatus.PLAYING)
+      {
+      GameManager.singleton.gameStatus = GameStatus.FAILED;
+      UIManager.instance.GameResult();
+    }
   }
 }

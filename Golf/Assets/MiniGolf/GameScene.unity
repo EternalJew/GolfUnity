@@ -935,15 +935,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ballPrefab: {fileID: 5572983978374574789, guid: 29164484c8d97814284015c77f35de23, type: 3}
   levelDatas:
-  - shotLimit: 99
+  - shotLimit: 5
     levelPrefab: {fileID: 9151569318176113239, guid: 1a98e835830028944a49be86bcbf4158, type: 3}
-  - shotLimit: 99
+  - shotLimit: 5
     levelPrefab: {fileID: 711297267708857532, guid: 7f88a8d989da3864a97c0c6520b61750, type: 3}
-  - shotLimit: 99
+  - shotLimit: 5
     levelPrefab: {fileID: 718906723722505572, guid: bd59e3fe26794124bbb9de6ac5ecaf67, type: 3}
-  - shotLimit: 99
+  - shotLimit: 5
     levelPrefab: {fileID: 9151569318176113239, guid: f732f251a96c73e468865d235b8cf285, type: 3}
-  - shotLimit: 99
+  - shotLimit: 5
     levelPrefab: {fileID: 9151569318176113239, guid: a5beecb27aac45347b00aea64f9b0b40, type: 3}
 --- !u!4 &854277327
 Transform:
@@ -1121,7 +1121,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1076096066
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1885,3 +1885,46 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &2034595308
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2034595310}
+  - component: {fileID: 2034595309}
+  m_Layer: 0
+  m_Name: UIManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2034595309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2034595308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d87258f2376c1c653931ab60b3c27c4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &2034595310
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2034595308}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
