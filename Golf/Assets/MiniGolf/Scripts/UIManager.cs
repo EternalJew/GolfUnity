@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
@@ -59,12 +60,24 @@ public class UIManager : MonoBehaviour
     }
     public void GameResult()
     {
+        gameOverPanel.SetActive(true);
         switch (GameManager.singleton.gameStatus)
         {
             case GameStatus.FAILED:
+                retryBtn.SetActive(true);
                 break;
             case GameStatus.COMPLETED:
+                nextBtn.SetActive(true);
                 break;
         }
+    }
+    public void HomeBtn()
+    {
+        GameManager.singleton.gameStatus = GameStatus.NONE;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+    public void RetryNextBtn()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

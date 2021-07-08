@@ -9,6 +9,10 @@ public class InputManager : MonoBehaviour
    private bool canRotate = false;
    void Update()
    {
+       if(GameManager.singleton.gameStatus != GameStatus.PLAYING)
+       {
+           return;
+       }
        if(Input.GetMouseButton(0) && !canRotate)
        {
            GetDistance();

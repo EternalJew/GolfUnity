@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7592686579211365918}
   - component: {fileID: 6539318131563565925}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: AreaAffactor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 5572983977650604935}
   - component: {fileID: 5572983977650604934}
   - component: {fileID: 5572983977650604937}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: BallMesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -173,7 +173,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5572983977929309386}
   - component: {fileID: 5572983977929309387}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: DirectionLineRenderer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -305,7 +305,7 @@ GameObject:
   - component: {fileID: 5572983978374574787}
   - component: {fileID: 5729640252216648251}
   - component: {fileID: 1952050066113152903}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Ball
   m_TagString: Untagged
   m_Icon: {fileID: 0}

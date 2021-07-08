@@ -1121,7 +1121,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1076096066
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1914,6 +1914,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d87258f2376c1c653931ab60b3c27c4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  powerImage: {fileID: 0}
+  shotText: {fileID: 0}
+  mainMenu: {fileID: 0}
+  gameMenu: {fileID: 0}
+  gameOverPanel: {fileID: 0}
+  retryBtn: {fileID: 0}
+  nextBtn: {fileID: 0}
+  lvlBtnPrefab: {fileID: 0}
+  container: {fileID: 0}
 --- !u!4 &2034595310
 Transform:
   m_ObjectHideFlags: 0

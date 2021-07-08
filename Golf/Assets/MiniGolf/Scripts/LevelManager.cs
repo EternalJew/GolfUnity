@@ -8,7 +8,7 @@ public class LevelManager : MonoBehaviour
   [SerializeField] private GameObject ballPrefab;
   [SerializeField] private LevelData[] levelDatas;
   public LevelData[] LevelDatas { get { return levelDatas; } }
-  private int shotCount = 0;
+  private int shotCount = 0, maxShotCount = 0;
   
   private void Awake()
   {
@@ -21,18 +21,21 @@ public class LevelManager : MonoBehaviour
         Destroy(gameObject);
       }
   }
-  private void Start()
-  {
-      SpawnLevel(GameManager.singleton.currentLevelIndex);
-  }
+  /*Fast Level Spawn*/
+  // private void Start()
+  // {
+  //     SpawnLevel(GameManager.singleton.currentLevelIndex);
+  // }
   public void SpawnLevel(int levelIndex)
   {
       Instantiate(levelDatas[levelIndex].levelPrefab, Vector3.zero, Quaternion.identity);
       shotCount = levelDatas[levelIndex].shotLimit;
+      maxShotCount = shotCount;
 
       GameObject ball = Instantiate(ballPrefab, Vector3.up * 0.5f, Quaternion.identity);
 
       GameManager.singleton.gameStatus = GameStatus.PLAYING;
+      UIManager.instance.ShotText.text = shotCount + "/" + maxShotCount;
   }
 
   public void ShotTaken()
@@ -40,9 +43,10 @@ public class LevelManager : MonoBehaviour
       if(shotCount > 0)
       {
           shotCount--;
+          UIManager.instance.ShotText.text = shotCount + "/" + maxShotCount;
           if(shotCount <= 0)
           {
-              GameManager.singleton.gameStatus = GameStatus.FAILED;
+            LevelFaield();
           }
       }
   }
